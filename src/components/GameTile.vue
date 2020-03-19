@@ -13,17 +13,17 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'GameTile',
-  props: ['index', 'content'],
+  props: ['index'],
   data () {
     return {
       value: ''
     }
   },
   computed: {
-    x: function () {
+    y: function () {
       return this.index % 3
     },
-    y: function () {
+    x: function () {
       return Math.floor(this.index / 3)
     },
     ...mapState(['board'])

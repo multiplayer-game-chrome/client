@@ -6,13 +6,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     boardLength: 9,
-    mark: 'Z',
+    mark: 'X',
     board: [],
+    winner: '',
     playerId: 0
   },
   mutations: {
     SET_BOARD (state, payload) {
       state.board = payload
+    },
+    SET_WINNER (state, payload) {
+      state.winner = payload
     },
     SET_PLAYER_ID (state, payload) {
       state.playerId = payload
