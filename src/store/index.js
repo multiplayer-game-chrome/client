@@ -8,8 +8,9 @@ export default new Vuex.Store({
     boardLength: 9,
     mark: 'Z',
     board: [],
+    winner: '',
     playerId: 0,
-    winner: ''
+    isActive: false
   },
   mutations: {
     SET_BOARD (state, payload) {
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     },
     SET_WINNER (state, payload) {
       state.winner = payload
+    },
+    SET_IS_ACTIVE (state, payload) {
+      state.isActive = payload
     }
   },
   actions: {},
