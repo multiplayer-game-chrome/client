@@ -13,7 +13,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'GameTile',
-  props: ['index', 'content'],
+  props: ['index'],
   data () {
     return {
       value: ''
