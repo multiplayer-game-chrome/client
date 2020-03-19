@@ -30,17 +30,28 @@ export default {
   },
   methods: {
     sendCoordinate () {
-      // this.$emit('mark-server', {
-      //   value: this.$store.state.mark,
-      //   x: this.x,
-      //   y: this.y
-      // })
+      console.log(this.$store.state.playerId)
+      console.log(this.$store.state.isActive)
+      console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
       if (this.value !== 'X' && this.value !== 'O') {
-        this.$emit('mark-server', {
-          value: this.$store.state.mark,
-          x: this.x,
-          y: this.y
-        })
+        console.log('success 1')
+        if (this.$store.state.playerId === 1 || this.$store.state.playerId === 2) {
+          console.log('success 2')
+          if (this.$store.state.isActive) {
+            console.log('success 3')
+            this.$emit('mark-server', {
+              value: this.$store.state.mark,
+              x: this.x,
+              y: this.y
+            })
+          } else {
+            // not your turn bitch
+          }
+        } else {
+          // u r spectator idiot!
+        }
+      } else {
+        // error r u idiot? u cant replace it bitch
       }
     }
   },
