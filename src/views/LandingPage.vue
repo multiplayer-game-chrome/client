@@ -24,8 +24,10 @@
 <script>
 export default {
   name: 'LandingPage',
-  data: {
-
+  data: () => {
+    return {
+      username: ''
+    }
   }
 }
 </script>
