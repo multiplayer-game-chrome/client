@@ -92,6 +92,10 @@ export default {
       this.$store.commit('SET_BOARD', payload.board)
       if (payload.winner !== '') this.$store.commit('SET_WINNER', payload.winner)
     })
+    this.socket.on('getPlayerId', (payload) => {
+      console.log(payload)
+      this.$store.commit('SET_PLAYER_ID', payload.playerId)
+    })
   }
 }
 </script>
