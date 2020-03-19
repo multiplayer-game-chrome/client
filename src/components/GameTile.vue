@@ -1,36 +1,53 @@
 <template>
   <div class="col-4 px-0" id="tictactoe-tile" @click="sendCoordinate">
     <div class="card">
-      <div
-        class="card-body mx-auto d-flex align-items-center justify-content-center"
-        id="card-body"
-      >
-        <!-- <h1>[{{ x }} , {{ y }}]</h1> -->
-        <h1>X</h1>
+      <div class="card-body">
+        <h1>{{value}}</h1>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'GameTile',
   props: ['index'],
+  data () {
+    return {
+      value: ''
+    }
+  },
   computed: {
-    x: function () {
+    y: function () {
       return this.index % 3
     },
-    y: function () {
+    x: function () {
       return Math.floor(this.index / 3)
-    }
+    },
+    ...mapState(['board'])
   },
   methods: {
     sendCoordinate () {
-      this.$emit('mark-server', {
-        value: this.$store.state.mark,
-        x: this.x,
-        y: this.y
-      })
+      // this.$emit('mark-server', {
+      //   value: this.$store.state.mark,
+      //   x: this.x,
+      //   y: this.y
+      // })
+      if (this.value !== 'X' && this.value !== 'O') {
+        this.$emit('mark-server', {
+          value: this.$store.state.mark,
+          x: this.x,
+          y: this.y
+        })
+      }
+    }
+  },
+  watch: {
+    board () {
+      const val = this.board[this.x][this.y]
+      this.value = val === 'z' ? '' : val
     }
   }
 }
