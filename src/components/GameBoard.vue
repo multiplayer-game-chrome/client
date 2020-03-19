@@ -39,6 +39,10 @@ export default {
     this.socket.on('update-board', (payload) => {
       this.$store.commit('SET_BOARD', payload.board)
     })
+    this.socket.on('getPlayerId', (payload) => {
+      console.log(payload)
+      this.$store.commit('SET_PLAYER_ID', payload.playerId)
+    })
   }
 }
 </script>
