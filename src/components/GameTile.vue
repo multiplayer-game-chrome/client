@@ -64,9 +64,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #tictactoe-tile {
-  width: 100%;
   cursor: pointer;
+  border: #ffa372 2px solid;
+}
+
+#card-body {
+  height: 250px;
+  width: 250px;
+}
+
+h1 {
+  font-size: 250px;
 }
 </style>

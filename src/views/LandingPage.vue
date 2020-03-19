@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="login-page">
     <div class="modal-dialog text-center">
       <div class="col-sm-9 main-section">
@@ -19,14 +20,42 @@
       </div>
     </div>
   </div>
+=======
+  <dir>
+    <h1>This is the Landing Page</h1>
+    <form @submit.prevent="enterUsername">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter username"
+          v-model="username"
+        />
+        <input type="submit" class="btn btn-primary mt-3" />
+      </div>
+    </form>
+  </dir>
+>>>>>>> Finished gameroom template
 </template>
 
 <script>
 export default {
   name: 'LandingPage',
+<<<<<<< HEAD
   data: () => {
     return {
       username: ''
+=======
+  data () {
+    return {
+      username: null
+    }
+  },
+  methods: {
+    enterUsername () {
+      this.$store.commit('SET_USERNAME', this.username)
+      this.$router.push({ name: 'GamePage' })
+>>>>>>> Finished gameroom template
     }
   }
 }
