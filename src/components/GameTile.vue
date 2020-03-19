@@ -30,11 +30,18 @@ export default {
   },
   methods: {
     sendCoordinate () {
-      this.$emit('mark-server', {
-        value: this.$store.state.mark,
-        x: this.x,
-        y: this.y
-      })
+      // this.$emit('mark-server', {
+      //   value: this.$store.state.mark,
+      //   x: this.x,
+      //   y: this.y
+      // })
+      if (this.value !== 'X' && this.value !== 'O') {
+        this.$emit('mark-server', {
+          value: this.$store.state.mark,
+          x: this.x,
+          y: this.y
+        })
+      }
     }
   },
   watch: {
