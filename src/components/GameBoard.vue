@@ -3,14 +3,18 @@
     class="container d-flex align-items-center justify-content-center"
     id="game-board"
   >
-    <div class="row">
-      <GameTile
-        v-for="(letter, i) in sampleText"
-        :key="i"
-        :index="i"
-        :content="letter"
-        @mark-server="mark"
-      ></GameTile>
+    <div class="d-flex flex-column">
+      <div class="row">
+        <GameTile
+          v-for="(letter, i) in sampleText"
+          :key="i"
+          :index="i"
+          @mark-server="mark"
+        ></GameTile>
+      </div>
+      <div class="pt-3">
+        <a class="btn btn-primary" role="button" @click.prevent="resetBoard">Reset Game</a>
+      </div>
     </div>
   </div>
 </template>
@@ -73,12 +77,15 @@ export default {
         confirmButtonText: 'Close',
         timer: 2000
       })
+    },
+    resetBoard () {
+      this.socket.emit('reset-board')
     }
   },
   watch: {
     winner () {
       // if winner is current player then call onWinGame
-      if (this.winner === 'X') {
+      if (+this.$store.state.playerId === +this.winner) {
         this.onWinGame()
       } else {
         this.onLoseGame()
@@ -92,9 +99,9 @@ export default {
       this.$store.commit('SET_BOARD', payload.board)
       if (payload.winner !== '') this.$store.commit('SET_WINNER', payload.winner)
     })
-    this.socket.on('getPlayerId', (payload) => {
-      console.log(payload)
+    this.socket.on('setPlayerId', (payload) => {
       this.$store.commit('SET_PLAYER_ID', payload.playerId)
+      console.log('clientid:', payload.playerId)
     })
   }
 }
