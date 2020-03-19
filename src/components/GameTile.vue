@@ -1,8 +1,12 @@
 <template>
   <div class="col-4 px-0" id="tictactoe-tile" @click="sendCoordinate">
     <div class="card">
-      <div class="card-body">
-        <h1>[{{ x }} , {{ y }}]</h1>
+      <div
+        class="card-body mx-auto d-flex align-items-center justify-content-center"
+        id="card-body"
+      >
+        <!-- <h1>[{{ x }} , {{ y }}]</h1> -->
+        <h1>X</h1>
       </div>
     </div>
   </div>
@@ -32,9 +36,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #tictactoe-tile {
-  width: 100%;
   cursor: pointer;
+  border: #ffa372 2px solid;
+}
+
+#card-body {
+  height: 250px;
+  width: 250px;
+}
+
+h1 {
+  font-size: 250px;
 }
 </style>

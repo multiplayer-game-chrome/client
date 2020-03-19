@@ -6,9 +6,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     boardLength: 9,
-    mark: 'X'
+    mark: 'X',
+    username: null
   },
-  mutations: {},
+  mutations: {
+    SET_USERNAME (state, payload) {
+      state.username = payload
+    }
+  },
   actions: {},
   modules: {}
 })
