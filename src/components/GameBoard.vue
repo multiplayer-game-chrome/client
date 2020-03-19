@@ -8,6 +8,7 @@
         v-for="(letter, i) in sampleText"
         :key="i"
         :index="i"
+        :content="letter"
         @mark-server="mark"
       ></GameTile>
     </div>
@@ -30,12 +31,14 @@ export default {
   },
   methods: {
     mark (payload) {
-      console.log('This actually works now :', payload)
       this.socket.emit('mark', payload)
     }
   },
   created () {
     this.socket = io
+    this.socket.on('update-board', (payload) => {
+      this.$store.commit('SET_BOARD', payload.board)
+    })
   }
 }
 </script>
