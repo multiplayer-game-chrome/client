@@ -3,8 +3,8 @@
     <div id="left">
       <div class="card px-0" style="width:250px">
         <img
-          class="card-img-top"
-          src="https://i.dlpng.com/static/png/1332245-file-format-png-file-size-10888-kb-free-download-grunge-circle-frame-1-png-circle-png-1024_982_preview.png"
+          class="card-img-top p-3"
+          src="https://www.freeiconspng.com/uploads/blue-circle-png-5.png"
           alt="Card image"
         />
         <div class="card-body p-0 pt-3">
@@ -29,7 +29,7 @@
     <div id="right">
       <div class="card px-0" style="width:250px">
         <img
-          class="card-img-top"
+          class="card-img-top p-3"
           src="https://pluspng.com/img-png/red-cross-png-red-cross-png-file-2000.png"
           alt="Card image"
         />

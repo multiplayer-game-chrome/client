@@ -18,11 +18,11 @@ const routes = [
   {
     path: '/game',
     name: 'GamePage',
-    component: GamePage
-    // meta: {
-    //   requiresAuth: true,
-    //   title: 'Tic-Tac-Toe play game'
-    // }
+    component: GamePage,
+    meta: {
+      requiresAuth: false,
+      title: 'Tic-Tac-Toe play game'
+    }
   }
 ]
 

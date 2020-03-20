@@ -68,11 +68,14 @@ export default {
 #tictactoe-tile {
   cursor: pointer;
   border: #ffa372 2px solid;
+  width: 250px;
+  height: 250px;
+  display: flex;
 }
 
-#card-body {
-  height: 250px;
-  width: 250px;
+.card {
+  height: 100%;
+  width: 100%;
 }
 
 h1 {
