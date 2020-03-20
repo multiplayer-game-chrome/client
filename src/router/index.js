@@ -20,7 +20,7 @@ const routes = [
     name: 'GamePage',
     component: GamePage,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
       title: 'Tic-Tac-Toe play game'
     }
   }
