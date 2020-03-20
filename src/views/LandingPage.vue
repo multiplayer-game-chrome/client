@@ -1,6 +1,7 @@
 <template>
 <<<<<<< HEAD
   <div id="login-page">
+    <h1> TIC TAC TOE</h1>
     <div class="modal-dialog text-center">
       <div class="col-sm-9 main-section">
         <div class="modal-content">
@@ -9,7 +10,7 @@
             <img src="../assets/icon.png" />
           </div>
           <div class="col-12 form-input">
-            <form>
+            <form @submit.prevent="login">
               <div class="form-group">
                 <input v-model="username" type="text" class="form-control" placeholder="Enter Username" required/>
               </div>
@@ -57,6 +58,15 @@ export default {
       this.$router.push({ name: 'GamePage' })
 >>>>>>> Finished gameroom template
     }
+  },
+  methods: {
+    login: function () {
+      const data = {
+        username: this.username
+      }
+      this.$store.commit('SET_USERNAME', data.username)
+      this.$router.push({ path: 'game' })
+    }
   }
 }
 </script>
@@ -67,6 +77,7 @@ export default {
   padding: 0;
 }
 #login-page {
+  background-image: url('../assets/background.jpg');
   width: 100vw;
   height: 100vh;
 }
@@ -79,7 +90,7 @@ export default {
 
 .modal-content {
   background-color: #1b262c;
-  opacity: 0.7;
+  opacity: 0.9;
   padding: 0 18px;
   border-radius: 20px;
 }
@@ -87,6 +98,7 @@ export default {
 .user-img img {
   height: 130px;
   width: 130px;
+  opacity: 1;
 }
 
 .user-img {
@@ -121,5 +133,6 @@ export default {
 
 .btn-success:hover {
   background-color: #f3d427;
+  border-color: #f3d427;
 }
 </style>
