@@ -10,6 +10,19 @@
 
 <script>
 import { mapState } from 'vuex'
+import Swal from 'sweetalert2'
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  onOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
 
 export default {
   name: 'GameTile',
@@ -33,10 +46,10 @@ export default {
       console.log(this.$store.state.playerId)
       console.log(this.$store.state.isActive)
       console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-      if (this.value !== 'X' && this.value !== 'O') {
+      if (this.$store.state.playerId === 1 || this.$store.state.playerId === 2) {
         console.log('success 1')
-        if (this.$store.state.playerId === 1 || this.$store.state.playerId === 2) {
-          console.log('success 2')
+        console.log('success 2')
+        if (this.value !== 'X' && this.value !== 'O') {
           if (this.$store.state.isActive) {
             console.log('success 3')
             this.$emit('mark-server', {
@@ -46,12 +59,25 @@ export default {
             })
           } else {
             // not your turn bitch
+            Toast.fire({
+              icon: 'error',
+              title: 'Not your turn'
+            })
           }
         } else {
           // u r spectator idiot!
+          Toast.fire({
+            icon: 'error',
+            title: 'You can\'t replace it'
+          })
         }
       } else {
         // error r u idiot? u cant replace it bitch
+        Toast.fire({
+          icon: 'error',
+          // title: 'You can\'t replace it'
+          title: 'You are not player'
+        })
       }
     }
   },
