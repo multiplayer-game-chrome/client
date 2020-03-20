@@ -106,7 +106,8 @@ export default {
     })
     this.socket.on('set-is-active', (payload) => {
       this.$store.commit('SET_IS_ACTIVE', payload.isActive)
-      console.log('clientid:', payload.isActive)
+      console.log('clientid:', payload.playerId)
+      console.log('isActive:', payload.isActive)
     })
   }
 }
