@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     boardLength: 9,
-    mark: 'X',
+    mark: 'Z',
     board: [],
     winner: '',
     playerId: 0,
