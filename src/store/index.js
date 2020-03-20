@@ -14,8 +14,14 @@ export default new Vuex.Store({
     username: null
   },
   mutations: {
+    SET_USERNAME (state, payload) {
+      state.username = payload
+    },
     SET_BOARD (state, payload) {
       state.board = payload
+    },
+    SET_WINNER (state, payload) {
+      state.winner = payload
     },
     SET_PLAYER_ID (state, payload) {
       state.playerId = payload
@@ -25,14 +31,8 @@ export default new Vuex.Store({
         state.mark = 'O'
       }
     },
-    SET_WINNER (state, payload) {
-      state.winner = payload
-    },
     SET_IS_ACTIVE (state, payload) {
       state.isActive = payload
-    },
-    SET_USERNAME (state, payload) {
-      state.username = payload
     }
   },
   actions: {},

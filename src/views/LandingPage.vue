@@ -1,5 +1,8 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3212ccf46f4eb440b320865f70ac13bcf8eb5391
   <div id="login-page">
     <h1> TIC TAC TOE</h1>
     <div class="modal-dialog text-center">
@@ -21,6 +24,7 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 =======
   <dir>
     <h1>This is the Landing Page</h1>
@@ -37,11 +41,14 @@
     </form>
   </dir>
 >>>>>>> Finished gameroom template
+=======
+>>>>>>> 3212ccf46f4eb440b320865f70ac13bcf8eb5391
 </template>
 
 <script>
 export default {
   name: 'LandingPage',
+<<<<<<< HEAD
 <<<<<<< HEAD
   data: () => {
     return {
@@ -57,6 +64,11 @@ export default {
       this.$store.commit('SET_USERNAME', this.username)
       this.$router.push({ name: 'GamePage' })
 >>>>>>> Finished gameroom template
+=======
+  data: () => {
+    return {
+      username: ''
+>>>>>>> 3212ccf46f4eb440b320865f70ac13bcf8eb5391
     }
   },
   methods: {
