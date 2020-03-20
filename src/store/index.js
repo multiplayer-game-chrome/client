@@ -10,9 +10,13 @@ export default new Vuex.Store({
     board: [],
     winner: '',
     playerId: 0,
-    isActive: false
+    isActive: false,
+    username: null
   },
   mutations: {
+    SET_USERNAME (state, payload) {
+      state.username = payload
+    },
     SET_BOARD (state, payload) {
       state.board = payload
     },

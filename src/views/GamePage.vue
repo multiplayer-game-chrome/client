@@ -1,6 +1,52 @@
 <template>
   <div id="game-page">
+    <div id="left">
+      <div class="card px-0" style="width:250px">
+        <img
+          class="card-img-top"
+          src="https://i.dlpng.com/static/png/1332245-file-format-png-file-size-10888-kb-free-download-grunge-circle-frame-1-png-circle-png-1024_982_preview.png"
+          alt="Card image"
+        />
+        <div class="card-body p-0 pt-3">
+          <button
+            href="javascript:;"
+            class="btn btn-outline-primary btn-block username-button"
+            disabled
+          >
+            USERNAME 1
+          </button>
+          <button
+            href="javascript:;"
+            class="btn btn-primary btn-block"
+            disabled
+          >
+            PLAYER 1
+          </button>
+        </div>
+      </div>
+    </div>
     <GameBoard> </GameBoard>
+    <div id="right">
+      <div class="card px-0" style="width:250px">
+        <img
+          class="card-img-top"
+          src="https://pluspng.com/img-png/red-cross-png-red-cross-png-file-2000.png"
+          alt="Card image"
+        />
+        <div class="card-body p-0 pt-3">
+          <button
+            href="javascript:;"
+            class="btn btn-outline-danger btn-block username-button"
+            disabled
+          >
+            USERNAME 2
+          </button>
+          <button href="javascript:;" class="btn btn-danger btn-block" disabled>
+            PLAYER 2
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,8 +62,33 @@ export default {
 
 <style scoped>
 #game-page {
-  background-color: pink;
+  background-color: #1b262c;
   height: 100vh;
   width: 100wh;
+  display: flex;
+}
+
+#left {
+  background-color: #0f4c81;
+  width: 30%;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#right {
+  background-color: #ed6663;
+  width: 30%;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username-button {
+  font-size: 30px;
 }
 </style>
