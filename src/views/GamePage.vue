@@ -4,7 +4,7 @@
       <div class="card px-0" style="width:250px">
         <img
           class="card-img-top p-3"
-          src="https://www.freeiconspng.com/uploads/blue-circle-png-5.png"
+          src="https://pluspng.com/img-png/red-cross-png-red-cross-png-file-2000.png"
           alt="Card image"
         />
         <div class="card-body p-0 pt-3">
@@ -13,7 +13,7 @@
             class="btn btn-outline-primary btn-block username-button"
             disabled
           >
-            USERNAME 1
+            {{isYourTurn}}
           </button>
           <button
             href="javascript:;"
@@ -30,7 +30,7 @@
       <div class="card px-0" style="width:250px">
         <img
           class="card-img-top p-3"
-          src="https://pluspng.com/img-png/red-cross-png-red-cross-png-file-2000.png"
+          src="https://www.freeiconspng.com/uploads/blue-circle-png-5.png"
           alt="Card image"
         />
         <div class="card-body p-0 pt-3">
@@ -56,6 +56,15 @@ export default {
   name: 'GamePage',
   components: {
     GameBoard
+  },
+  computed: {
+    isYourTurn () {
+      if (this.$store.state.isActive && (this.$store.state.playerId === 1 || this.$store.state.playerId === 2)) {
+        return 'Your Turn'
+      } else {
+        return 'Wait'
+      }
+    }
   }
 }
 </script>
