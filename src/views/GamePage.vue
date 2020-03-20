@@ -13,7 +13,7 @@
             class="btn btn-outline-primary btn-block username-button"
             disabled
           >
-            {{isYourTurn}}
+            {{turn.left}}
           </button>
           <button
             href="javascript:;"
@@ -39,7 +39,7 @@
             class="btn btn-outline-danger btn-block username-button"
             disabled
           >
-            USERNAME 2
+            {{turn.right}}
           </button>
           <button href="javascript:;" class="btn btn-danger btn-block" disabled>
             PLAYER 2
@@ -60,6 +60,30 @@ export default {
   computed: {
     isYourTurn () {
       if (this.$store.state.isActive && (this.$store.state.playerId === 1 || this.$store.state.playerId === 2)) {
+        return true
+      } else {
+        return false
+      }
+    },
+    turn () {
+      if (this.$store.state.playerId === 1) {
+        if (this.$store.state.isActive && this.$store.state.playerId === 1) {
+          return { left: 'Your Turn', right: 'Wait' }
+        } else {
+          return { right: 'Enemy Turn', left: 'Wait' }
+        }
+      } else if (this.$store.state.playerId === 2) {
+        if (this.$store.state.isActive && this.$store.state.playerId === 2) {
+          return { right: 'Your Turn', left: 'Wait' }
+        } else {
+          return { left: 'Enemy Turn', right: 'Wait' }
+        }
+      } else {
+        return { right: '', left: '' }
+      }
+    },
+    getRight () {
+      if (this.$store.state.isActive && this.$store.state.playerId === 2) {
         return 'Your Turn'
       } else {
         return 'Wait'
